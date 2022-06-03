@@ -1,0 +1,23 @@
+name: Build infrastructure using getdeck for django hurricane
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install k3d
+      run: |
+        curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash
+    - name: Install Getdeck
+      run: |
+        curl -sSL https://raw.githubusercontent.com/getdeck/getdeck/main/install.sh | sh -
+    - uses: vvvityaaa/getdeck-action@main
+      name: Create Infrastructure from Deckfile
+      with:
+        deck-file-path: https://raw.githubusercontent.com/Getdeck/wharf/main/django/deck.yaml

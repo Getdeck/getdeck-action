@@ -1,0 +1,24 @@
+name: Getdeck/getdeck-action
+description: "A GitHub Action to create cluster infrastructure with Getdeck"
+author: vvvityaaa
+
+branding:
+  icon: box
+  color: green
+inputs:
+  deck-file-path:
+    description: "Path to the Deckfile."
+    required: false
+    default: 'root'
+  deck-name:
+    description: "Name of a deck to run from the Deckfile."
+    required: false
+runs:
+  using: composite
+  steps:
+    - id: main
+      shell: bash
+      run: ${{ github.action_path }}/run.sh deploy
+      env:
+        DECK_FILE_PATH: ${{ inputs.deck-file-path }}
+        DECK_NAME: ${{ inputs.deck-name }}
