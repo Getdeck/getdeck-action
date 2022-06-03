@@ -17,7 +17,7 @@ jobs:
     - name: Install Getdeck
       run: |
         curl -sSL https://raw.githubusercontent.com/getdeck/getdeck/main/install.sh | sh -
-    - uses: vvvityaaa/getdeck-action@main
+    - uses: Getdeck/getdeck-action@main
       name: Create Infrastructure from Deckfile
       with:
         deck-file-path: https://raw.githubusercontent.com/Getdeck/wharf/main/django/deck.yaml
