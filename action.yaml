@@ -16,12 +16,10 @@ inputs:
 runs:
   using: composite
   steps:
-    - id: k3d
+    - run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh
       shell: bash
-      run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh
-    - id: getdeck
+    - run: curl -sSL https://raw.githubusercontent.com/getdeck/getdeck/main/install.sh
       shell: bash
-      run: curl -sSL https://raw.githubusercontent.com/getdeck/getdeck/main/install.sh
     - id: main
       shell: bash
       run: ${{ github.action_path }}/run.sh deploy
