@@ -20,7 +20,7 @@ runs:
       shell: bash
     - id: main
       shell: bash
-      run: ${{ github.action_path }}/run.sh deploy
+      run: curl -sSL https://raw.githubusercontent.com/getdeck/getdeck/main/install.sh;${{ github.action_path }}/run.sh deploy
       env:
         DECK_FILE_PATH: ${{ inputs.deck-file-path }}
         DECK_NAME: ${{ inputs.deck-name }}
