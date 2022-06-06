@@ -1,18 +1,16 @@
+#!/bin/bash
+
 EXE="/usr/local/bin/deck get"
 
-if [ -z "$DECK_NAME" ]
-then
-  echo $DECK_NAME
+if [[ -z "$DECK_NAME" ]]; then
   EXE="${EXE} --name ${DECK_NAME}"
 fi
 
-if [[ $WAIT == "1" || $WAIT == "true" || $WAIT == "True" ]]
-then
+if [[ $WAIT == "1" || $WAIT == "true" || $WAIT == "True" ]]; then
   EXE="${EXE} --wait"
 fi
 
-if [ -z "$TIMEOUT" ]
-then
+if [[ -z "$TIMEOUT" ]]; then
   EXE="${EXE} --timeout ${TIMEOUT}"
 fi
 
