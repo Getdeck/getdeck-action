@@ -1,6 +1,22 @@
+#!/bin/bash
+
+EXE="/usr/local/bin/deck get"
+
 if [ -z "$DECK_NAME" ]
 then
-  /usr/local/bin/deck get ${DECK_FILE_PATH}
-else
-  /usr/local/bin/deck get --name ${DECK_NAME} ${DECK_FILE_PATH}
+  EXE="${EXE} --name ${DECK_NAME}"
 fi
+
+if [[ $WAIT == "1" || $WAIT == "true" || $WAIT == "True" ]]
+then
+  EXE="${EXE} --wait"
+fi
+
+if [ -z "$TIMEOUT" ]
+then
+  EXE="${EXE} --timeout ${TIMEOUT}"
+fi
+
+EXE="${EXE} $DECK_FILE_PATH"
+
+$EXE

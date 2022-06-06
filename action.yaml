@@ -13,6 +13,14 @@ inputs:
   deck-name:
     description: "Name of a Deck to run from the Deckfile."
     required: false
+  wait:
+    description: "Wait for the Pods of the Deck to become ready"
+    required: false
+    default: "true"
+  timeout:
+    description: "Timeout (in seconds) for the Pods of the Deck to become ready; if exceeded the run fails"
+    required: false
+    default: "120"
 runs:
   using: composite
   steps:
@@ -28,3 +36,5 @@ runs:
       env:
         DECK_FILE_PATH: ${{ inputs.deck-file-path }}
         DECK_NAME: ${{ inputs.deck-name }}
+        WAIT: ${{ inputs.wait }}
+        TIMEOUT: ${{ inputs.timeout }}
