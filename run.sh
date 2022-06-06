@@ -4,6 +4,7 @@ EXE="/usr/local/bin/deck get"
 
 if [ -z "$DECK_NAME" ]
 then
+  echo $DECK_NAME
   EXE="${EXE} --name ${DECK_NAME}"
 fi
 
