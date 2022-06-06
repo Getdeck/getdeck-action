@@ -9,19 +9,19 @@ inputs:
   deck-file-path:
     description: "Path to the Deckfile."
     required: false
-    default: 'root'
+    default: "."
   deck-name:
-    description: "Name of a deck to run from the Deckfile."
+    description: "Name of a Deck to run from the Deckfile."
     required: false
 runs:
   using: composite
   steps:
     - id: k3d
       shell: bash
-      run: curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh
+      run: "curl -s https://raw.githubusercontent.com/k3d-io/k3d/main/install.sh | bash"
     - id: getdeck
       shell: bash
-      run: curl -sSL https://raw.githubusercontent.com/getdeck/getdeck/main/install.sh
+      run: "curl -sSL https://raw.githubusercontent.com/getdeck/getdeck/main/install.sh | sh -"
     - id: main
       shell: bash
       run: ${{ github.action_path }}/run.sh deploy
