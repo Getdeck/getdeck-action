@@ -2,15 +2,15 @@
 
 EXE="/usr/local/bin/deck get"
 
-if [[ -z "${DECK_NAME}" ]]; then
+if [ -n "${DECK_NAME}" ]; then
   EXE="${EXE} --name ${DECK_NAME}"
 fi
 
-if [[ "${WAIT}" == "1" || "${WAIT}" == "true" || "${WAIT}" == "True" ]]; then
+if [[ -n ${WAIT} && ${WAIT} == "1" || ${WAIT} == "true" || ${WAIT} == "True" ]]; then
   EXE="${EXE} --wait"
 fi
 
-if [[ -z "${TIMEOUT}" ]]; then
+if [[ -n "${TIMEOUT}" ]]; then
   EXE="${EXE} --timeout ${TIMEOUT}"
 fi
 
