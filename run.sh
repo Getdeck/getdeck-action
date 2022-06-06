@@ -1,5 +1,3 @@
-#!/bin/bash
-
 EXE="/usr/local/bin/deck get"
 
 if [ -z "$DECK_NAME" ]
