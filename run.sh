@@ -19,4 +19,6 @@ fi
 
 EXE="${EXE} $DECK_FILE_PATH"
 
+echo $EXE
+
 $EXE
