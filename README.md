@@ -1,8 +1,5 @@
 # getdeck-action
 A GitHub Action to run ephemeral Kubernetes clusters during workflow based on Deckfiles.
-
-# getdeck-action
-A GitHub Action to run ephemeral Kubernetes clusters during workflow based on Deckfiles.
 Our action can take several parameters: `deck-file-path`, `deck-name`, `deck-timeout`, `deck-wait`.
 
 `deck-file-path` - path to the Deckfile, if not specified a root path of the GitHub repository is used.
