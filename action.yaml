@@ -1,5 +1,5 @@
 name: Getdeck/getdeck-action
-description: "A GitHub Action to create cluster infrastructure with Getdeck"
+description: "A GitHub Action to create Kubernetes cluster infrastructure with Getdeck"
 author: vvvityaaa
 
 branding:
